@@ -1,54 +1,108 @@
 #pragma once
-
-#include <vector>
-#include <string>
 #include <cstdint>
-#include <algorithm>
-#include <array>
+#include <iostream>
+#include <type_traits>
+#include <vector>
+#include <list>
+#include <tuple>
 
-std::vector<std::string> split(const std::string &str, char d);
-std::uint32_t ip_to_int(const std::vector<std::string> ip_str);
-std::string ip_to_str(const std::uint32_t ip_int);
-
-template <typename T, typename... Args>
-std::vector<std::uint32_t> filter(std::vector<std::uint32_t> v, T firstArg, Args... args)
+template <typename T>
+void print_ips_int(const T& ip)
 {
-    std::array<T, sizeof... (args)+1> byteVal {firstArg, args...};
+    static_assert(std::is_integral<T>::value, "Integral type required!");
+    auto bytes_cnt = sizeof(T);
 
-    auto f = [&byteVal](std::uint32_t ip)
+    for(size_t i = bytes_cnt; i > 0; --i)
     {
-        for(size_t i = 0; i < byteVal.size(); ++i)
+        std::uint8_t byte = ((ip >> (8*(i-1))) & 0xFF);
+        if(i != bytes_cnt)
         {
-            if(((ip >> 8*(3-i)) & 0xFF) != byteVal[i])
-            {
-                return false;
-            }
+            std::cout << ".";
         }
-        return true;
-    };
-
-    std::vector<std::uint32_t> out;
-    copy_if(v.begin(), v.end(), std::back_inserter(out), f);
-    return out;
+        std::cout << std::to_string(byte);
+    }
+    std::cout << std::endl;
 }
 
 template <typename T>
-std::vector<std::uint32_t> filter_any(std::vector<std::uint32_t> v, T byteVal)
+void print_ips_container(const T& ip)
 {
-    auto f = [byteVal](std::uint32_t ip)
-    {
-        for(size_t i = 0; i < 4; ++i)
-        {
-            if(((ip >> 8*(3-i)) & 0xFF) == byteVal)
-            {
-                return true;
-            }
-        }
-        return false;
-    };
+    static_assert(std::is_integral<typename T::value_type>::value, "Integral type required!");
+    bool not_first = false;
 
-    std::vector<std::uint32_t> out;
-    copy_if(v.begin(), v.end(), std::back_inserter(out), f);
-    return out;
+    for(auto ipp : ip)
+    {
+        if(not_first)
+        {
+            std::cout << ".";
+        }
+        std::cout << std::to_string(ipp);
+        not_first = true;
+    }
+    std::cout << std::endl;
 }
+
+
+//void print_ips_tuple()
+//{
+//}
+
+//template <typename T>
+//void print_ips_tuple(T t)
+//{
+//    static_assert(std::is_integral<T>::value, "Integral type required!");
+//    std::cout << t;
+
+//}
+
+//template <typename T, typename... Args>
+//void print_ips_tuple(T t, Args... args)
+//{
+//    static_assert(std::is_integral<T>::value, "Integral type required!");
+//    std::cout << t << ".";
+//    print_ips_tuple(args...);
+
+//}
+
+
+template<typename Tuple, std::size_t N>
+struct TuplePrinter
+{
+    static void print_ips_tuple(const Tuple& t)
+    {
+        //static_assert(std::is_integral<typename std::get<N-1>(t)::value_type>::value, "Integral type of tuple element required!");
+        TuplePrinter<Tuple, N-1>::print_ips_tuple(t);
+        std::cout << "." << std::get<N-1>(t);
+    }
+};
+
+template<typename Tuple>
+struct TuplePrinter<Tuple, 1>
+{
+    static void print_ips_tuple(const Tuple& t)
+    {
+        //static_assert(std::is_integral<std::get<0>(t)>::value, "Integral type of tuple element required!");
+        std::cout << std::to_string(std::get<0>(t));
+    }
+};
+
+template<typename... Args>
+void print_ips_tuple(const std::tuple<Args...>& t)
+{
+    TuplePrinter<decltype(t), sizeof...(Args)>::print_ips_tuple(t);
+    std::cout << std::endl;
+}
+
+
+template <typename... Args>
+void iterate(Args... args)
+{
+    std::cout << sizeof...(args) << std::endl;
+    int a[sizeof...(args)] = {(std::cout << args << ".", 0)...};
+
+    std::cout << std::endl;
+}
+
+
+
 

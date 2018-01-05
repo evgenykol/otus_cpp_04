@@ -1,108 +1,32 @@
 #include <cstdlib>
 #include <iostream>
-#include <string>
-#include <vector>
-#include <array>
 
 #include "ip_filter.h"
-
-void print_ips(const std::vector<std::uint32_t> &ip)
-{
-    for(auto i : ip)
-    {
-        std::cout << ip_to_str(i) << std::endl;
-    }
-}
 
 int main(int argc, char const *argv[])
 {
     try
     {
-        std::vector<std::uint32_t> ip_pool;
+        std::int8_t i1 = 0x1;
+        std::int16_t i2 = 0x0102;
+        std::int32_t i3 = 0x01020304;
+        std::int64_t i4 = 0x0102030405060708;
 
-        for(std::string line; std::getline(std::cin, line);)
-        {
-            std::vector<std::string> v = split(line, '\t');
-            auto ip = ip_to_int(split(v.at(0), '.'));
-            ip_pool.push_back(ip);
-        }
+        print_ips_int(i1);
+        print_ips_int(i2);
+        print_ips_int(i3);
+        print_ips_int(i4);
 
-        //reverse lexicographically sort
-        std::sort(ip_pool.begin(), ip_pool.end(), std::greater<std::uint32_t>());
+        std::vector<int> v = {1,2,3,4,5,6,7,8,9};
+        print_ips_container(v);
 
-        print_ips(ip_pool);
+        std::list<int> l = {1,2,3,4,5,6,7,8,9};
+        print_ips_container(l);
 
-        auto v1 = filter(ip_pool, 1);
-        print_ips(v1);
+        auto t = std::make_tuple(1,2,3,4);
+        print_ips_tuple(t);
 
-        auto v2 = filter(ip_pool, 46, 70);
-        print_ips(v2);
-
-        auto v3 = filter_any(ip_pool, 46);
-        print_ips(v3);
-
-        // 222.173.235.246
-        // 222.130.177.64
-        // 222.82.198.61
-        // ...
-        // 1.70.44.170
-        // 1.29.168.152
-        // 1.1.234.8
-
-        // TODO filter by first byte and output
-        // ip = filter(1)
-
-        // 1.231.69.33
-        // 1.87.203.225
-        // 1.70.44.170
-        // 1.29.168.152
-        // 1.1.234.8
-
-        // TODO filter by first and second bytes and output
-        // ip = filter(46, 70)
-
-        // 46.70.225.39
-        // 46.70.147.26
-        // 46.70.113.73
-        // 46.70.29.76
-
-        // TODO filter by any byte and output
-        // ip = filter_any(46)
-
-        // 186.204.34.46
-        // 186.46.222.194
-        // 185.46.87.231
-        // 185.46.86.132
-        // 185.46.86.131
-        // 185.46.86.131
-        // 185.46.86.22
-        // 185.46.85.204
-        // 185.46.85.78
-        // 68.46.218.208
-        // 46.251.197.23
-        // 46.223.254.56
-        // 46.223.254.56
-        // 46.182.19.219
-        // 46.161.63.66
-        // 46.161.61.51
-        // 46.161.60.92
-        // 46.161.60.35
-        // 46.161.58.202
-        // 46.161.56.241
-        // 46.161.56.203
-        // 46.161.56.174
-        // 46.161.56.106
-        // 46.161.56.106
-        // 46.101.163.119
-        // 46.101.127.145
-        // 46.70.225.39
-        // 46.70.147.26
-        // 46.70.113.73
-        // 46.70.29.76
-        // 46.55.46.98
-        // 46.49.43.85
-        // 39.46.86.85
-        // 5.189.203.46
+        iterate(1,2,3);
     }
     catch(const std::exception &e)
     {
