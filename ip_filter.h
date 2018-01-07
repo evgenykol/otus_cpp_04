@@ -4,7 +4,7 @@
  * \date   2018
  * \brief  ip_filter.h for OTUS C++ homework #4
  *
- * \details * Contains templates for IP printing
+ * \details Contains templates for IP printing
  */
 
 

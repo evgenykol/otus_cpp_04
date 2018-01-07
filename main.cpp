@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     if ((argc > 1) &&
        (!strncmp(argv[1], "-v", 2) || !strncmp(argv[1], "--version", 9)))
     {
-        cout << "version " << version() << endl;
+        std::cout << "version " << version() << std::endl;
         return 0;
     }
 
