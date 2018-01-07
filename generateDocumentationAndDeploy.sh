@@ -36,6 +36,7 @@
 ################################################################################
 ##### Setup this script and get the current gh-pages branch.               #####
 echo 'Setting up the script...'
+echo 'pwd= ' `pwd`
 # Exit with nonzero exit code if anything fails
 set -e
 
@@ -78,6 +79,8 @@ doxygen $DOXYFILE 2>&1 | tee doxygen.log
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
+echo 'pwd= ' `pwd`
+echo `ls`
 if [ -d "html" ] && [ -f "html/index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
