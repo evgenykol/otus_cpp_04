@@ -1,3 +1,13 @@
+/**
+ * \file   ip_filter.h
+ * \author evgenyko
+ * \date   2018
+ * \brief  ip_filter.h for OTUS C++ homework #4
+ *
+ * \details * Contains templates for IP printing
+ */
+
+
 #pragma once
 #include <cstdint>
 #include <iostream>
@@ -6,6 +16,11 @@
 #include <list>
 #include <tuple>
 
+/**
+ * \brief Prints IP address from intgral typed variable
+ * \details IP prints depending on variable's size (e.g. short->"X.X", int->"X.X.X.X")
+ * \param [in] ip Integral typed IP address
+ */
 template <typename T>
 void print_ips_int(const T& ip)
 {
@@ -24,6 +39,11 @@ void print_ips_int(const T& ip)
     std::cout << std::endl;
 }
 
+/**
+ * \brief Prints IP address from container
+ * \details Each element of container represents single byte. Container elements must be integral
+ * \param [in] ip Container with IP address
+ */
 template <typename T>
 void print_ips_container(const T& ip)
 {
@@ -43,28 +63,10 @@ void print_ips_container(const T& ip)
 }
 
 
-//void print_ips_tuple()
-//{
-//}
-
-//template <typename T>
-//void print_ips_tuple(T t)
-//{
-//    static_assert(std::is_integral<T>::value, "Integral type required!");
-//    std::cout << t;
-
-//}
-
-//template <typename T, typename... Args>
-//void print_ips_tuple(T t, Args... args)
-//{
-//    static_assert(std::is_integral<T>::value, "Integral type required!");
-//    std::cout << t << ".";
-//    print_ips_tuple(args...);
-
-//}
-
-
+/**
+ * \brief Prints IP address from tupe. Partitial specialization template
+ * \param [in] t Tuple with IP address
+ */
 template<typename Tuple, std::size_t N>
 struct TuplePrinter
 {
@@ -76,6 +78,10 @@ struct TuplePrinter
     }
 };
 
+/**
+ * \brief Prints IP address from tupe. Partitial specialization template
+ * \param [in] t Tuple with IP address
+ */
 template<typename Tuple>
 struct TuplePrinter<Tuple, 1>
 {
@@ -86,23 +92,16 @@ struct TuplePrinter<Tuple, 1>
     }
 };
 
+/**
+ * \brief Prints IP address from tupe
+ * \details Each element of tuple represents single byte. All tuple elements must have the same type
+ *
+ * \param [in] t Tuple with IP address
+ */
 template<typename... Args>
 void print_ips_tuple(const std::tuple<Args...>& t)
 {
     TuplePrinter<decltype(t), sizeof...(Args)>::print_ips_tuple(t);
     std::cout << std::endl;
 }
-
-
-template <typename... Args>
-void iterate(Args... args)
-{
-    std::cout << sizeof...(args) << std::endl;
-    int a[sizeof...(args)] = {(std::cout << args << ".", 0)...};
-
-    std::cout << std::endl;
-}
-
-
-
 

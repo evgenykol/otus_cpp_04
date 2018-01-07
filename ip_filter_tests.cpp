@@ -1,3 +1,12 @@
+/**
+ * \file   ip_filter_tests.cpp
+ * \author evgenyko
+ * \date   2018
+ * \brief  ip_filter_tests.cpp for OTUS C++ homework #4
+ *
+ * \details * Contains tests for IP printing functions
+ */
+
 #include "ip_filter.h"
 
 #define BOOST_TEST_MODULE ip_filter_tests
