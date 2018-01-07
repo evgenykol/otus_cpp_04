@@ -17,7 +17,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_c_make_c_compiler_id_8c_source.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';
