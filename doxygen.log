@@ -17,7 +17,6 @@ Warning: ignoring unsupported tag `DOCBOOK_PROGRAMLISTING =' at line 2013, file 
 Warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2442, file /home/travis/build/evgenykol/otus_cpp_04/Doxyfile
 Warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2447, file /home/travis/build/evgenykol/otus_cpp_04/Doxyfile
 Warning: ignoring unsupported tag `PLANTUML_INCLUDE_PATH  =' at line 2452, file /home/travis/build/evgenykol/otus_cpp_04/Doxyfile
-Warning: the dot tool could not be found at /opt/local/bin
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:20: warning: Compound cout_redirect is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:12: warning: Member BOOST_TEST_MODULE (macro definition) of file ip_filter_tests.cpp is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:33: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_int) (function) of file ip_filter_tests.cpp is not documented.
