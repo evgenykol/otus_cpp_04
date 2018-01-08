@@ -64,7 +64,7 @@ void print_ips_container(const T& ip)
 
 
 /**
- * \brief Prints IP address from tupe. Partitial specialization template
+ * \brief Prints IP address from tuple. Partitial specialization template
  * \param [in] t Tuple with IP address
  */
 template<typename Tuple, std::size_t N>
@@ -79,7 +79,7 @@ struct TuplePrinter
 };
 
 /**
- * \brief Prints IP address from tupe. Partitial specialization template
+ * \brief Prints IP address from tuple. Partitial specialization template
  * \param [in] t Tuple with IP address
  */
 template<typename Tuple>
@@ -93,7 +93,7 @@ struct TuplePrinter<Tuple, 1>
 };
 
 /**
- * \brief Prints IP address from tupe
+ * \brief Prints IP address from tuple
  * \details Each element of tuple represents single byte. All tuple elements must have the same type
  *
  * \param [in] t Tuple with IP address
