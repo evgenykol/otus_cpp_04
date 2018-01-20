@@ -8,7 +8,7 @@
 var indexSectionsWithContent =
 {
   0: "cimptv",
-  1: "ct",
+  1: "cit",
   2: "imv",
   3: "mpv"
 };

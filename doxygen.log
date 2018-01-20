@@ -18,16 +18,18 @@ Warning: ignoring unsupported tag `PLANTUML_JAR_PATH      =' at line 2442, file 
 Warning: ignoring unsupported tag `PLANTUML_CFG_FILE      =' at line 2447, file /home/travis/build/evgenykol/otus_cpp_04/Doxyfile
 Warning: ignoring unsupported tag `PLANTUML_INCLUDE_PATH  =' at line 2452, file /home/travis/build/evgenykol/otus_cpp_04/Doxyfile
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:20: warning: Compound cout_redirect is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter.h:42: warning: Member print_ip(const std::string &ip) (function) of file ip_filter.h is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:12: warning: Member BOOST_TEST_MODULE (macro definition) of file ip_filter_tests.cpp is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:33: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_int) (function) of file ip_filter_tests.cpp is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:51: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_uint) (function) of file ip_filter_tests.cpp is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:69: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_container_vector) (function) of file ip_filter_tests.cpp is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:80: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_container_list) (function) of file ip_filter_tests.cpp is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:91: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_tuple) (function) of file ip_filter_tests.cpp is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:47: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_uint) (function) of file ip_filter_tests.cpp is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:61: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_string) (function) of file ip_filter_tests.cpp is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:72: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_container_vector) (function) of file ip_filter_tests.cpp is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:82: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_container_list) (function) of file ip_filter_tests.cpp is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:92: warning: Member BOOST_AUTO_TEST_CASE(check_print_ips_tuple) (function) of file ip_filter_tests.cpp is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/version.h:12: warning: Member PROJECT_VERSION_PATCH (macro definition) of file version.h is not documented.
 /home/travis/build/evgenykol/otus_cpp_04/ip_filter_tests.cpp:21: warning: Member cout_redirect(std::streambuf *new_buffer) (function) of class cout_redirect is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter.h:73: warning: Member print_ips_tuple(const Tuple &t) (function) of class TuplePrinter is not documented.
-/home/travis/build/evgenykol/otus_cpp_04/ip_filter.h:88: warning: Member print_ips_tuple(const Tuple &t) (function) of class TuplePrinter< Tuple, 1 > is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter.h:87: warning: Member print_ip(const Tuple &t) (function) of class TuplePrinter is not documented.
+/home/travis/build/evgenykol/otus_cpp_04/ip_filter.h:102: warning: Member print_ip(const Tuple &t) (function) of class TuplePrinter< Tuple, ElType, 1 > is not documented.
 Searching for include files...
 Searching for example files...
 Searching for images...
@@ -116,8 +118,11 @@ Generating page documentation...
 Generating group documentation...
 Generating class documentation...
 Generating docs for compound cout_redirect...
+Generating docs for compound is_container...
+Generating docs for compound is_container< std::list< T, Alloc > >...
+Generating docs for compound is_container< std::vector< T, Alloc > >...
 Generating docs for compound TuplePrinter...
-Generating docs for compound TuplePrinter< Tuple, 1 >...
+Generating docs for compound TuplePrinter< Tuple, ElType, 1 >...
 Generating namespace index...
 Generating graph info page...
 Generating directory documentation...
@@ -137,17 +142,32 @@ Generating example index...
 finalizing index lists...
 Running dot...
 Generating dot graphs using 3 parallel threads...
-Running dot for graph 1/7
-Running dot for graph 2/7
-Running dot for graph 3/7
-Running dot for graph 4/7
-Running dot for graph 5/7
-Running dot for graph 6/7
-Running dot for graph 7/7
-Patching output file 1/5
-Patching output file 2/5
-Patching output file 3/5
-Patching output file 4/5
-Patching output file 5/5
-lookup cache used 18/65536 hits=45 misses=18
+Running dot for graph 1/18
+Running dot for graph 2/18
+Running dot for graph 3/18
+Running dot for graph 4/18
+Running dot for graph 5/18
+Running dot for graph 6/18
+Running dot for graph 7/18
+Running dot for graph 8/18
+Running dot for graph 9/18
+Running dot for graph 10/18
+Running dot for graph 11/18
+Running dot for graph 12/18
+Running dot for graph 13/18
+Running dot for graph 14/18
+Running dot for graph 15/18
+Running dot for graph 16/18
+Running dot for graph 17/18
+Running dot for graph 18/18
+Patching output file 1/9
+Patching output file 2/9
+Patching output file 3/9
+Patching output file 4/9
+Patching output file 5/9
+Patching output file 6/9
+Patching output file 7/9
+Patching output file 8/9
+Patching output file 9/9
+lookup cache used 21/65536 hits=62 misses=21
 finished...

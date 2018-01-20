@@ -135,27 +135,32 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tuple_printer.html">TuplePrinter&lt; Tuple, N &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__container.html">is_container&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__container_3_01std_1_1vector_3_01_t_00_01_alloc_01_4_01_4.html">is_container&lt; std::vector&lt; T, Alloc &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__container_3_01std_1_1list_3_01_t_00_01_alloc_01_4_01_4.html">is_container&lt; std::list&lt; T, Alloc &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tuple_printer.html">TuplePrinter&lt; Tuple, ElType, N &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from tuple. Partitial specialization template.  <a href="struct_tuple_printer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tuple_printer_3_01_tuple_00_011_01_4.html">TuplePrinter&lt; Tuple, 1 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from tuple. Partitial specialization template.  <a href="struct_tuple_printer_3_01_tuple_00_011_01_4.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tuple_printer_3_01_tuple_00_01_el_type_00_011_01_4.html">TuplePrinter&lt; Tuple, ElType, 1 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from tuple. Partitial specialization template.  <a href="struct_tuple_printer_3_01_tuple_00_01_el_type_00_011_01_4.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a02bdf01c27c79d49451aab1e21d8a3fa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a02bdf01c27c79d49451aab1e21d8a3fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ip__filter_8h.html#a02bdf01c27c79d49451aab1e21d8a3fa">print_ips_int</a> (const T &amp;ip)</td></tr>
-<tr class="memdesc:a02bdf01c27c79d49451aab1e21d8a3fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from intgral typed variable.  <a href="#a02bdf01c27c79d49451aab1e21d8a3fa">More...</a><br/></td></tr>
-<tr class="separator:a02bdf01c27c79d49451aab1e21d8a3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41275d4aaa457d901eac190f0af73c2f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a41275d4aaa457d901eac190f0af73c2f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ip__filter_8h.html#a41275d4aaa457d901eac190f0af73c2f">print_ips_container</a> (const T &amp;ip)</td></tr>
-<tr class="memdesc:a41275d4aaa457d901eac190f0af73c2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from container.  <a href="#a41275d4aaa457d901eac190f0af73c2f">More...</a><br/></td></tr>
-<tr class="separator:a41275d4aaa457d901eac190f0af73c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3731249a60de8042a4a6e96510eb962d"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a3731249a60de8042a4a6e96510eb962d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ip__filter_8h.html#a3731249a60de8042a4a6e96510eb962d">print_ips_tuple</a> (const std::tuple&lt; Args...&gt; &amp;t)</td></tr>
-<tr class="memdesc:a3731249a60de8042a4a6e96510eb962d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from tuple.  <a href="#a3731249a60de8042a4a6e96510eb962d">More...</a><br/></td></tr>
-<tr class="separator:a3731249a60de8042a4a6e96510eb962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a053bd6652138dd42ff38ef12f5cc97"><td class="memTemplParams" colspan="2">template&lt;class T , typename std::enable_if&lt; std::is_integral&lt; T &gt;::value, T &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:a6a053bd6652138dd42ff38ef12f5cc97"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ip__filter_8h.html#a6a053bd6652138dd42ff38ef12f5cc97">print_ip</a> (const T &amp;ip)</td></tr>
+<tr class="memdesc:a6a053bd6652138dd42ff38ef12f5cc97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from intgral typed variable.  <a href="#a6a053bd6652138dd42ff38ef12f5cc97">More...</a><br/></td></tr>
+<tr class="separator:a6a053bd6652138dd42ff38ef12f5cc97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affc93c873efa6e5a67842f8ec1bf1dad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="affc93c873efa6e5a67842f8ec1bf1dad"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>print_ip</b> (const std::string &amp;ip)</td></tr>
+<tr class="separator:affc93c873efa6e5a67842f8ec1bf1dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75874ac311fd4eeffa5fcb859b5c1b1"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:af75874ac311fd4eeffa5fcb859b5c1b1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ip__filter_8h.html#af75874ac311fd4eeffa5fcb859b5c1b1">print_ip</a> (const std::tuple&lt; Args...&gt; &amp;t)</td></tr>
+<tr class="memdesc:af75874ac311fd4eeffa5fcb859b5c1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints IP address from tuple.  <a href="#af75874ac311fd4eeffa5fcb859b5c1b1">More...</a><br/></td></tr>
+<tr class="separator:af75874ac311fd4eeffa5fcb859b5c1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="ip__filter_8h.html" title="ip_filter.h for OTUS C++ homework #4 ">ip_filter.h</a> for OTUS C++ homework #4 </p>
@@ -165,43 +170,14 @@ Functions</h2></td></tr>
 
 <p>Definition in file <a class="el" href="ip__filter_8h_source.html">ip_filter.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a41275d4aaa457d901eac190f0af73c2f"></a>
+<a class="anchor" id="a6a053bd6652138dd42ff38ef12f5cc97"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;class T , typename std::enable_if&lt; std::is_integral&lt; T &gt;::value, T &gt;::type  = 0&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void print_ips_container </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>ip</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Prints IP address from container. </p>
-<p>Each element of container represents single byte. Container elements must be integral </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>Container with IP address </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="ip__filter_8h_source.html#l00048">48</a> of file <a class="el" href="ip__filter_8h_source.html">ip_filter.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a02bdf01c27c79d49451aab1e21d8a3fa"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_ips_int </td>
+          <td class="memname">void print_ip </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>ip</em></td><td>)</td>
@@ -211,10 +187,18 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Prints IP address from intgral typed variable. </p>
+<p>Prints IP address from container.</p>
 <p>IP prints depending on variable's size (e.g. short-&gt;"X.X", int-&gt;"X.X.X.X") </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>Integral typed IP address </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>Integral typed IP address</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Each element of container represents single byte. Container elements must be integral </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>Container with IP address </td></tr>
   </table>
   </dd>
 </dl>
@@ -223,14 +207,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3731249a60de8042a4a6e96510eb962d"></a>
+<a class="anchor" id="af75874ac311fd4eeffa5fcb859b5c1b1"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void print_ips_tuple </td>
+          <td class="memname">void print_ip </td>
           <td>(</td>
           <td class="paramtype">const std::tuple&lt; Args...&gt; &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -248,7 +232,7 @@ template&lt;typename... Args&gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="ip__filter_8h_source.html#l00102">102</a> of file <a class="el" href="ip__filter_8h_source.html">ip_filter.h</a>.</p>
+<p>Definition at line <a class="el" href="ip__filter_8h_source.html#l00116">116</a> of file <a class="el" href="ip__filter_8h_source.html">ip_filter.h</a>.</p>
 
 </div>
 </div>

@@ -3,7 +3,8 @@ var NAVTREE =
   [ "ip_filter_print", "index.html", [
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
-      [ "Class Index", "classes.html", null ]
+      [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ]
     ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
