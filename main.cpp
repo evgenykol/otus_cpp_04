@@ -40,6 +40,9 @@ int main(int argc, char const *argv[])
         print_ip(std::vector<int>{80, 87, 192, 10});
         print_ip(std::list<int>{81, 19, 82, 9});
 
+        print_ip(std::make_tuple(77,88,55,77));
+        print_ip(std::make_tuple("192","30","253","112"));
+
     }
     catch(const std::exception &e)
     {

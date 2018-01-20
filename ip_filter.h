@@ -76,45 +76,47 @@ void print_ip(const T& ip)
 }
 
 
-///**
-// * \brief Prints IP address from tuple. Partitial specialization template
-// * \param [in] t Tuple with IP address
-// */
-//template<typename Tuple, std::size_t N>
-//struct TuplePrinter
-//{
-//    static void print_ips_tuple(const Tuple& t)
-//    {
-//        //static_assert(std::is_integral<typename std::get<N-1>(t)::value_type>::value, "Integral type of tuple element required!");
-//        TuplePrinter<Tuple, N-1>::print_ips_tuple(t);
-//        std::cout << "." << std::get<N-1>(t);
-//    }
-//};
+/**
+ * \brief Prints IP address from tuple. Partitial specialization template
+ * \param [in] t Tuple with IP address
+ */
+template<typename Tuple, typename ElType, std::size_t N>
+struct TuplePrinter
+{
 
-///**
-// * \brief Prints IP address from tuple. Partitial specialization template
-// * \param [in] t Tuple with IP address
-// */
-//template<typename Tuple>
-//struct TuplePrinter<Tuple, 1>
-//{
-//    static void print_ips_tuple(const Tuple& t)
-//    {
-//        //static_assert(std::is_integral<std::get<0>(t)>::value, "Integral type of tuple element required!");
-//        std::cout << std::to_string(std::get<0>(t));
-//    }
-//};
+    static void print_ip(const Tuple& t)
+    {
+        static_assert(std::is_same<ElType, decltype(std::get<N-1>(t))>::value, "Tuple elements of same type requested!");
+        TuplePrinter<Tuple, decltype(std::get<N-1>(t)), N-1>::print_ip(t);
+        std::cout << "." << std::get<N-1>(t);
+    }
+};
 
-///**
-// * \brief Prints IP address from tuple
-// * \details Each element of tuple represents single byte. All tuple elements must have the same type
-// *
-// * \param [in] t Tuple with IP address
-// */
-//template<typename... Args>
-//void print_ips_tuple(const std::tuple<Args...>& t)
-//{
-//    TuplePrinter<decltype(t), sizeof...(Args)>::print_ips_tuple(t);
-//    std::cout << std::endl;
-//}
+/**
+ * \brief Prints IP address from tuple. Partitial specialization template
+ * \param [in] t Tuple with IP address
+ */
+template<typename Tuple, typename ElType>
+struct TuplePrinter<Tuple, ElType, 1>
+{
+    static void print_ip(const Tuple& t)
+    {
+        static_assert(std::is_same<ElType, decltype(std::get<0>(t))>::value, "Tuple elements of same type requested!");
+        std::cout << std::get<0>(t);
+    }
+};
 
+/**
+ * \brief Prints IP address from tuple
+ * \details Each element of tuple represents single byte. All tuple elements must have the same type
+ *
+ * \param [in] t Tuple with IP address
+ */
+template<typename... Args>
+void print_ip(const std::tuple<Args...>& t)
+{
+    //static_assert(all_same<Args...>, "fuck");
+
+    TuplePrinter<decltype(t), decltype(std::get<sizeof...(Args)-1>(t)), sizeof...(Args)>::print_ip(t);
+    std::cout << std::endl;
+}

@@ -51,6 +51,7 @@ enable_testing()
 
 add_test(check_print_ips_int ip_filter_tests)
 add_test(check_print_ips_uint ip_filter_tests)
+add_test(check_print_ips_string ip_filter_tests)
 add_test(check_print_ips_container_vector ip_filter_tests)
 add_test(check_print_ips_container_list ip_filter_tests)
 add_test(check_print_ips_tuple ip_filter_tests)

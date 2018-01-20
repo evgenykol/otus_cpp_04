@@ -30,73 +30,75 @@ private:
     std::streambuf * old;
 };
 
-//BOOST_AUTO_TEST_CASE(check_print_ips_int)
-//{
-//    output_test_stream output;
-//    {
-//        cout_redirect guard( output.rdbuf( ) );
-//        std::int8_t i1 = 0x1;
-//        std::int16_t i2 = 0x0102;
-//        std::int32_t i3 = 0x01020304;
-//        std::int64_t i4 = 0x0102030405060708;
+BOOST_AUTO_TEST_CASE(check_print_ips_int)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
 
-//        print_ips_int(i1);
-//        print_ips_int(i2);
-//        print_ips_int(i3);
-//        print_ips_int(i4);
-//    }
-//    BOOST_CHECK(output.is_equal("1\n1.2\n1.2.3.4\n1.2.3.4.5.6.7.8\n"));
-//}
+        print_ip(char(-1));
+        print_ip(short(0));
+        print_ip(int(2130706433));
+        print_ip(long(8875824491850138409));
+    }
+    BOOST_CHECK(output.is_equal("255\n0.0\n127.0.0.1\n123.45.67.89.101.112.131.41\n"));
+}
 
-//BOOST_AUTO_TEST_CASE(check_print_ips_uint)
-//{
-//    output_test_stream output;
-//    {
-//        cout_redirect guard( output.rdbuf( ) );
-//        std::uint8_t i1 = 0x1;
-//        std::uint16_t i2 = 0x0102;
-//        std::uint32_t i3 = 0x01020304;
-//        std::uint64_t i4 = 0x0102030405060708;
+BOOST_AUTO_TEST_CASE(check_print_ips_uint)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
 
-//        print_ips_int(i1);
-//        print_ips_int(i2);
-//        print_ips_int(i3);
-//        print_ips_int(i4);
-//    }
-//    BOOST_CHECK(output.is_equal("1\n1.2\n1.2.3.4\n1.2.3.4.5.6.7.8\n"));
-//}
+        print_ip(std::uint8_t(-1));
+        print_ip(std::uint16_t(0));
+        print_ip(std::uint32_t(2130706433));
+        print_ip(std::uint64_t(8875824491850138409));
+    }
+    BOOST_CHECK(output.is_equal("255\n0.0\n127.0.0.1\n123.45.67.89.101.112.131.41\n"));
+}
 
-//BOOST_AUTO_TEST_CASE(check_print_ips_container_vector)
-//{
-//    output_test_stream output;
-//    {
-//        cout_redirect guard( output.rdbuf( ) );
-//        std::vector<int> v = {1,2,3,4,5,6,7,8,9};
-//        print_ips_container(v);
-//    }
-//    BOOST_CHECK(output.is_equal("1.2.3.4.5.6.7.8.9\n"));
-//}
+BOOST_AUTO_TEST_CASE(check_print_ips_string)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
 
-//BOOST_AUTO_TEST_CASE(check_print_ips_container_list)
-//{
-//    output_test_stream output;
-//    {
-//        cout_redirect guard( output.rdbuf( ) );
-//        std::list<int> l = {1,2,3,4,5,6,7,8,9};
-//        print_ips_container(l);
-//    }
-//    BOOST_CHECK(output.is_equal("1.2.3.4.5.6.7.8.9\n"));
-//}
+        print_ip("74.114.88.139");
+    }
+    BOOST_CHECK(output.is_equal("74.114.88.139\n"));
+}
 
-//BOOST_AUTO_TEST_CASE(check_print_ips_tuple)
-//{
-//    output_test_stream output;
-//    {
-//        cout_redirect guard( output.rdbuf( ) );
-//        auto t = std::make_tuple(1,2,3,4);
-//        print_ips_tuple(t);
-//    }
-//    BOOST_CHECK(output.is_equal("1.2.3.4\n"));
-//}
+BOOST_AUTO_TEST_CASE(check_print_ips_container_vector)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
+        print_ip(std::vector<int>{80, 87, 192, 10});
+    }
+    BOOST_CHECK(output.is_equal("80.87.192.10\n"));
+}
+
+BOOST_AUTO_TEST_CASE(check_print_ips_container_list)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
+        print_ip(std::list<int>{81, 19, 82, 9});
+    }
+    BOOST_CHECK(output.is_equal("81.19.82.9\n"));
+}
+
+BOOST_AUTO_TEST_CASE(check_print_ips_tuple)
+{
+    output_test_stream output;
+    {
+        cout_redirect guard( output.rdbuf( ) );
+
+        print_ip(std::make_tuple(77,88,55,77));
+        print_ip(std::make_tuple("192","30","253","112"));
+    }
+    BOOST_CHECK(output.is_equal("77.88.55.77\n192.30.253.112\n"));
+}
 
 BOOST_AUTO_TEST_SUITE_END()
