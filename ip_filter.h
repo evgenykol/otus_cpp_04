@@ -39,6 +39,11 @@ void print_ip(const T& ip)
     std::cout << std::endl;
 }
 
+/**
+ * \brief Prints IP address from string
+ * \details IP prints depending from string without modifications
+ * \param [in] ip String IP address
+ */
 void print_ip(const std::string& ip)
 {
     std::cout << ip << std::endl;
