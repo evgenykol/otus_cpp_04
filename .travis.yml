@@ -2,18 +2,6 @@ language: cpp
 compiler: clang
 sudo: false
 
-# Blacklist
-#branches:
-#  only:
-#    - master
-
-# Environment variables
-#env:
-#  global:
-#    - GH_REPO_NAME: otus_cpp_04
-#    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
-#    - GH_REPO_REF: github.com/evgenykol/otus_cpp_04.git
-
 # Install dependencies
 addons:
   apt:
@@ -21,10 +9,6 @@ addons:
       - libboost-test-dev -y
       - doxygen
       - graphviz
-
-# Может объединить с тем что повыше?
-#before_script:
-#  - sudo apt-get install libboost-test-dev -y
 
 script:
   - cmake .
@@ -46,9 +30,3 @@ deploy:
   local-dir: html
   on:
     branch: master
-
-# Generate and deploy documentation
-#after_success:
-#  - cd $TRAVIS_BUILD_DIR
-#  - chmod +x generateDocumentationAndDeploy.sh
-#  - ./generateDocumentationAndDeploy.sh
