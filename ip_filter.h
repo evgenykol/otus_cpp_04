@@ -21,8 +21,8 @@
  * \details IP prints depending on variable's size (e.g. short->"X.X", int->"X.X.X.X")
  * \param [in] ip Integral typed IP address
  */
-template <typename T>
-void print_ips_int(const T& ip)
+template <class T, typename std::enable_if<std::is_integral<T>::value, T>::type = 0>
+void print_ip(const T& ip)
 {
     static_assert(std::is_integral<T>::value, "Integral type required!");
     auto bytes_cnt = sizeof(T);
@@ -39,13 +39,26 @@ void print_ips_int(const T& ip)
     std::cout << std::endl;
 }
 
+void print_ip(const std::string& ip)
+{
+    std::cout << ip << std::endl;
+}
+
+template<class T> struct is_container : public std::false_type {};
+
+template<class T, class Alloc>
+struct is_container<std::vector<T, Alloc>> : public std::true_type {};
+
+template<class T, class Alloc>
+struct is_container<std::list<T, Alloc>> : public std::true_type {};
+
 /**
  * \brief Prints IP address from container
  * \details Each element of container represents single byte. Container elements must be integral
  * \param [in] ip Container with IP address
  */
-template <typename T>
-void print_ips_container(const T& ip)
+template <class T, typename std::enable_if<is_container<T>::value, typename T::value_type>::type = 0>
+void print_ip(const T& ip)
 {
     static_assert(std::is_integral<typename T::value_type>::value, "Integral type required!");
     bool not_first = false;
@@ -63,45 +76,45 @@ void print_ips_container(const T& ip)
 }
 
 
-/**
- * \brief Prints IP address from tuple. Partitial specialization template
- * \param [in] t Tuple with IP address
- */
-template<typename Tuple, std::size_t N>
-struct TuplePrinter
-{
-    static void print_ips_tuple(const Tuple& t)
-    {
-        //static_assert(std::is_integral<typename std::get<N-1>(t)::value_type>::value, "Integral type of tuple element required!");
-        TuplePrinter<Tuple, N-1>::print_ips_tuple(t);
-        std::cout << "." << std::get<N-1>(t);
-    }
-};
+///**
+// * \brief Prints IP address from tuple. Partitial specialization template
+// * \param [in] t Tuple with IP address
+// */
+//template<typename Tuple, std::size_t N>
+//struct TuplePrinter
+//{
+//    static void print_ips_tuple(const Tuple& t)
+//    {
+//        //static_assert(std::is_integral<typename std::get<N-1>(t)::value_type>::value, "Integral type of tuple element required!");
+//        TuplePrinter<Tuple, N-1>::print_ips_tuple(t);
+//        std::cout << "." << std::get<N-1>(t);
+//    }
+//};
 
-/**
- * \brief Prints IP address from tuple. Partitial specialization template
- * \param [in] t Tuple with IP address
- */
-template<typename Tuple>
-struct TuplePrinter<Tuple, 1>
-{
-    static void print_ips_tuple(const Tuple& t)
-    {
-        //static_assert(std::is_integral<std::get<0>(t)>::value, "Integral type of tuple element required!");
-        std::cout << std::to_string(std::get<0>(t));
-    }
-};
+///**
+// * \brief Prints IP address from tuple. Partitial specialization template
+// * \param [in] t Tuple with IP address
+// */
+//template<typename Tuple>
+//struct TuplePrinter<Tuple, 1>
+//{
+//    static void print_ips_tuple(const Tuple& t)
+//    {
+//        //static_assert(std::is_integral<std::get<0>(t)>::value, "Integral type of tuple element required!");
+//        std::cout << std::to_string(std::get<0>(t));
+//    }
+//};
 
-/**
- * \brief Prints IP address from tuple
- * \details Each element of tuple represents single byte. All tuple elements must have the same type
- *
- * \param [in] t Tuple with IP address
- */
-template<typename... Args>
-void print_ips_tuple(const std::tuple<Args...>& t)
-{
-    TuplePrinter<decltype(t), sizeof...(Args)>::print_ips_tuple(t);
-    std::cout << std::endl;
-}
+///**
+// * \brief Prints IP address from tuple
+// * \details Each element of tuple represents single byte. All tuple elements must have the same type
+// *
+// * \param [in] t Tuple with IP address
+// */
+//template<typename... Args>
+//void print_ips_tuple(const std::tuple<Args...>& t)
+//{
+//    TuplePrinter<decltype(t), sizeof...(Args)>::print_ips_tuple(t);
+//    std::cout << std::endl;
+//}
 

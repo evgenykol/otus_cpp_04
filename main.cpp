@@ -30,24 +30,16 @@ int main(int argc, char const *argv[])
 
     try
     {
-        std::int8_t i1 = 0x1;
-        std::int16_t i2 = 0x0102;
-        std::int32_t i3 = 0x01020304;
-        std::int64_t i4 = 0x0102030405060708;
+        print_ip(char(-1));
+        print_ip(short(0));
+        print_ip(int(2130706433));
+        print_ip(long(8875824491850138409));
 
-        print_ips_int(i1);
-        print_ips_int(i2);
-        print_ips_int(i3);
-        print_ips_int(i4);
+        print_ip("74.114.88.139");
 
-        std::vector<int> v = {1,2,3,4,5,6,7,8,9};
-        print_ips_container(v);
+        print_ip(std::vector<int>{80, 87, 192, 10});
+        print_ip(std::list<int>{81, 19, 82, 9});
 
-        std::list<int> l = {1,2,3,4,5,6,7,8,9};
-        print_ips_container(l);
-
-        auto t = std::make_tuple(1,2,3,4);
-        print_ips_tuple(t);
     }
     catch(const std::exception &e)
     {
