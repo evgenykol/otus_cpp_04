@@ -19,9 +19,6 @@ addons:
   apt:
     packages:
       - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
       - graphviz
 
 # Может объединить с тем что повыше?
@@ -38,7 +35,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T ip_filter_print-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uevgenykol:$BINTRAY_API_KEY "https://api.bintray.com/content/evgenykol/otus_cpp_01/ip_filter_print/$TRAVIS_BUILD_NUMBER/ip_filter_print-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T ip_print-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uevgenykol:$BINTRAY_API_KEY "https://api.bintray.com/content/evgenykol/otus_cpp_01/ip_print/$TRAVIS_BUILD_NUMBER/ip_print-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
 
 # Generate and deploy documentation
 after_success:
